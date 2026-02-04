@@ -76,3 +76,12 @@ body{
 .note{margin:12px 0 0;color:var(--muted);font-size:13px}
 
 .footer{padding:22px 0;color:var(--muted)}
+.reveal{
+  opacity:0;
+  transform: translateY(10px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.is-in{
+  opacity:1;
+  transform: translateY(0);
+}
