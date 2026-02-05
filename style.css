@@ -141,6 +141,9 @@ body{
   display:flex;
   flex-direction:column;
   gap:16px;
+
+  /* 追加：カードを中央に寄せる */
+  align-items:center;
 }
 
 /* カード本体：横並び */
@@ -153,6 +156,9 @@ body{
   overflow:hidden;                 /* 端まで写真を寄せる */
   background:#fff7d6;              /* 淡い黄色 */
   box-shadow: 0 14px 30px rgba(15,23,42,.10);
+
+  /* 追加：カードの横幅を“短く”して余白をなくす */
+  width: min(980px, 100%);
 }
 
 /* 偶数は左右反転（交互） */
@@ -177,6 +183,11 @@ body{
 .bio-body{
   padding:16px;
   min-width:0;
+    /* 追加：本文は常に左寄せで整列 */
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  text-align:left;
 }
 
 .bio-name{
@@ -212,6 +223,9 @@ body{
   .bio-card,
   .bio-card:nth-child(even){
     flex-direction:column;
+  .bio-list{ align-items:stretch; }  /* スマホは中央寄せ解除 */
+  .bio-card{ width:100%; }           /* スマホは全幅 */
+}
   }
   .bio-photo{
     flex:0 0 auto;
