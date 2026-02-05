@@ -136,3 +136,86 @@ body{
   font-size:12px;
   font-weight:600;
 }
+/* --- 講師紹介：左右交互カード --- */
+.bio-list{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+/* カード本体：横並び */
+.bio-card{
+  display:flex;
+  align-items:stretch;
+  gap:16px;
+  border:1px solid rgba(15,23,42,.10);
+  border-radius:22px;
+  overflow:hidden;                 /* 端まで写真を寄せる */
+  background:#fff7d6;              /* 淡い黄色 */
+  box-shadow: 0 14px 30px rgba(15,23,42,.10);
+}
+
+/* 偶数は左右反転（交互） */
+.bio-card:nth-child(even){
+  flex-direction:row-reverse;
+}
+
+/* ダミー写真：端に固定 */
+.bio-photo{
+  flex:0 0 240px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(15,23,42,.06);
+  color:rgba(15,23,42,.55);
+  font-weight:800;
+  letter-spacing:.06em;
+  user-select:none;
+}
+
+/* 本文 */
+.bio-body{
+  padding:16px;
+  min-width:0;
+}
+
+.bio-name{
+  margin:0 0 8px;
+  font-size:18px;
+  letter-spacing:-.01em;
+}
+
+.bio-ul{
+  margin:0;
+  padding-left:18px;
+  color:rgba(15,23,42,.78);
+  font-size:14px;
+  line-height:1.75;
+}
+
+/* スクロール出現：左→右、右→左 */
+.bio-card.reveal{
+  opacity:0;
+  transform: translateX(-18px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.bio-card:nth-child(even).reveal{
+  transform: translateX(18px);
+}
+.bio-card.reveal.is-in{
+  opacity:1;
+  transform: translateX(0);
+}
+
+/* スマホ：縦並び（写真上、文字下） */
+@media (max-width: 700px){
+  .bio-card,
+  .bio-card:nth-child(even){
+    flex-direction:column;
+  }
+  .bio-photo{
+    flex:0 0 auto;
+    width:100%;
+    height:180px;
+  }
+}
