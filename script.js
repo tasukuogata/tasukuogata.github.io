@@ -1,4 +1,4 @@
-const targets = document.querySelectorAll(".reveal");
+const targets = document.querySelectorAll(".reveal, .float-in");
 
 const io = new IntersectionObserver((entries) => {
   for (const e of entries) {
